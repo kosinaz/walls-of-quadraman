@@ -1,7 +1,7 @@
 extends Node
 
 var tween = null
-var map_position = Vector3(0, 0, 0)
+var player_translation = Vector3(0, 0, 0)
 var up_is_down = false
 var left_is_down = false
 var right_is_down = false
@@ -18,26 +18,40 @@ func _process(_delta):
 	if tween != null and tween.is_running():
 		return
 	if Input.is_action_pressed("ui_left") or left_is_down:
-		map_position.x -= 1
+		if _is_wall(player_translation - Vector3(1, 0, 0)):
+			return
+		player_translation.x -= 1
 		$"%Player/Spatial/character-male-b/AnimationPlayer".play("sprint")
 		$"%Player".rotation_degrees.y = 270
 	elif Input.is_action_pressed("ui_right") or right_is_down:
-		map_position.x += 1
+		if _is_wall(player_translation + Vector3(1, 0, 0)):
+			return
+		player_translation.x += 1
 		$"%Player/Spatial/character-male-b/AnimationPlayer".play("sprint")
 		$"%Player".rotation_degrees.y = 90
 	elif Input.is_action_pressed("ui_up") or up_is_down:
-		map_position.z -= 1
+		if _is_wall(player_translation - Vector3(0, 0, 1)):
+			return
+		player_translation.z -= 1
 		$"%Player/Spatial/character-male-b/AnimationPlayer".play("sprint")
 		$"%Player".rotation_degrees.y = 180
 	elif Input.is_action_pressed("ui_down") or down_is_down:
-		map_position.z += 1
+		if _is_wall(player_translation + Vector3(0, 0, 1)):
+			return
+		player_translation.z += 1
 		$"%Player/Spatial/character-male-b/AnimationPlayer".play("sprint")
 		$"%Player".rotation_degrees.y = 0
 	else:
 		$"%Player/Spatial/character-male-b/AnimationPlayer".play("idle")
 		return
 	tween = get_tree().create_tween()
-	tween.tween_property($"%Player", "translation", map_position, 0.25)
+	tween.tween_property($"%Player", "translation", player_translation, 0.25)
+
+func _is_wall(translation):
+	for wall in get_tree().get_nodes_in_group("walls"):
+		if wall.translation == translation:
+			return true
+	return false
 
 func _on_up_button_down():
 	up_is_down = true
