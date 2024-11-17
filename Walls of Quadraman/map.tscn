@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://wall.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tower-square.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://siege-ram.tscn" type="PackedScene" id=5]
 [ext_resource path="res://wall-doorway.tscn" type="PackedScene" id=6]
 [ext_resource path="res://tree-large.tscn" type="PackedScene" id=7]
+[ext_resource path="res://tower-square-top-roof.tscn" type="PackedScene" id=8]
 
 [sub_resource type="SpatialMaterial" id=2]
 albedo_color = Color( 0, 1, 0.262745, 1 )
@@ -210,6 +211,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 5 )
 [node name="tower-square14" parent="." groups=["walls"] instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 2 )
 
+[node name="tower-square30" parent="." groups=["walls"] instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 2 )
+
 [node name="tower-square15" parent="." groups=["walls"] instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -5 )
 
@@ -311,3 +315,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -2 )
 
 [node name="tree-large2" parent="." groups=["walls"] instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1 )
+
+[node name="tower-square-top-roof" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, -4 )
+
+[node name="tower-square-top-roof2" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 1, -4 )

@@ -16,6 +16,7 @@ func _ready():
 
 func _process(_delta):
 	if Input.is_action_pressed("ui_accept"):
+	# warning-ignore:return_value_discarded
 		get_tree().reload_current_scene()
 	if tween != null and tween.is_running():
 		return
