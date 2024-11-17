@@ -60,4 +60,4 @@ unique_name_in_owner = true
 [node name="Position3D" type="Position3D" parent="."]
 
 [node name="Camera" type="Camera" parent="Position3D"]
-transform = Transform( 1, 4.2222e-08, 3.2398e-08, -4.2222e-08, 0.258819, 0.965926, 3.2398e-08, -0.965926, 0.258819, 5, 9, 4 )
+transform = Transform( 1, 4.2222e-08, 3.2398e-08, -4.2222e-08, 0.258819, 0.965926, 3.2398e-08, -0.965926, 0.258819, 4, 7, 4 )
