@@ -5,7 +5,6 @@ var left_is_down = false
 var right_is_down = false
 var down_is_down = false
 var config = ConfigFile.new()
-onready var player_translation = $"%Player".translation
 
 func _ready():
 	# warning-ignore:unused_variable
@@ -14,6 +13,9 @@ func _ready():
 	config.save("user://config.cfg")
 
 func _process(_delta):
+	if $"%Player".translation.z < -4 and name.right(3) != "4":
+		# warning-ignore:return_value_discarded
+		get_tree().change_scene("res://map" + str(int(name.right(3)) + 1) + ".tscn")
 	if Input.is_action_pressed("ui_accept"):
 		# warning-ignore:return_value_discarded
 		get_tree().reload_current_scene()
