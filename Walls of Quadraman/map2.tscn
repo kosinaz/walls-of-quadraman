@@ -288,13 +288,13 @@ transform = Transform( 0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 7, 0, 4 )
 transform = Transform( 1, 4.22219e-08, 3.23981e-08, -4.2222e-08, 0.258819, 0.965926, 3.2398e-08, -0.965926, 0.258819, 5, 8, 3 )
 
 [node name="Ram" parent="." groups=["rams"] instance=ExtResource( 5 )]
-transform = Transform( 0.6, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
+transform = Transform( -2.62268e-08, 0, 1, 0, 1, 0, -0.6, 0, -4.37114e-08, 0, 0, 3 )
 
 [node name="Ram3" parent="." groups=["rams"] instance=ExtResource( 5 )]
-transform = Transform( -0.6, 0, 8.74228e-08, 0, 1, 0, -5.24537e-08, 0, -1, 7, 0, -3 )
+transform = Transform( -2.62269e-08, 0, -1, 0, 1, 0, 0.6, 0, -4.37114e-08, 7, 0, -3 )
 
 [node name="Ram2" parent="." groups=["rams"] instance=ExtResource( 5 )]
-transform = Transform( -0.6, 0, 8.74228e-08, 0, 1, 0, -5.24537e-08, 0, -1, 6, 0, 4 )
+transform = Transform( -2.62269e-08, 0, -1, 0, 1, 0, 0.6, 0, -4.37114e-08, 6, 0, 4 )
 
 [node name="wall-doorway" parent="." groups=["doors"] instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 0.85, 0, -1, 0, -4.37114e-08, 3, 0, -2 )
