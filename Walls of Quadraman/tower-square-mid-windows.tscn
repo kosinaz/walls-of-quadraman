@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Models/GLB format/tower-square-mid-windows.glb" type="PackedScene" id=1]
+
+[node name="tower-square-mid-windows" groups=["walls"] instance=ExtResource( 1 )]
