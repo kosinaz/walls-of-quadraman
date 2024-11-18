@@ -4,6 +4,7 @@
 [ext_resource path="res://unit.gd" type="Script" id=2]
 
 [node name="Player" type="Spatial"]
+transform = Transform( 0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0 )
 script = ExtResource( 2 )
 
 [node name="Spatial" type="Spatial" parent="."]

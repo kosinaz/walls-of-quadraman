@@ -14,6 +14,30 @@ func move_towards(direction):
 		return false
 	if _is_group_member_at("walls", translation + direction):
 		return false
+	var y_translation = Vector3(0, 0, 0)
+	if _is_group_member_at("siege_towers", translation - Vector3(0, 1, 0)):
+		var siege_tower = _get_group_member_at("siege_towers", translation - Vector3(0, 1, 0))
+		if (
+			_degrees[direction] != siege_tower.rotation_degrees.y and 
+			_degrees[-direction] != siege_tower.rotation_degrees.y
+		):
+			return false
+		if _degrees[-direction] == siege_tower.rotation_degrees.y:
+			y_translation.y -= 1
+	elif translation.y == 1:
+		if (
+			not _is_group_member_at("walls", translation + direction - Vector3(0, 1, 0)) and 
+			not _is_group_member_at("doors", translation + direction - Vector3(0, 1, 0)) and 
+			not _is_group_member_at("siege_towers", translation + direction - Vector3(0, 1, 0))
+		):
+			return false
+		var siege_tower = _get_group_member_at("siege_towers", translation + direction - Vector3(0, 1, 0))
+		if (
+			siege_tower and
+			_degrees[direction] != siege_tower.rotation_degrees.y and 
+			_degrees[-direction] != siege_tower.rotation_degrees.y
+		):
+			return false
 	if _is_group_member_at("doors", translation + direction):
 		if not _is_group_member_at("rams", translation):
 			return false
@@ -27,12 +51,18 @@ func move_towards(direction):
 		var siege_tower = _get_group_member_at("siege_towers", translation + direction)
 		var moved = siege_tower.move_towards(direction)
 		if not moved:
-			return false
+			if (
+				not _is_group_member_at("walls", translation + 2 * direction) or
+				(_degrees[direction] != siege_tower.rotation_degrees.y and 
+				_degrees[-direction] != siege_tower.rotation_degrees.y)
+			):
+				return false
+			y_translation.y += 1
 	if has_node("Spatial/character-male-b/AnimationPlayer"):
 		$"Spatial/character-male-b/AnimationPlayer".play("sprint")
 	rotation_degrees.y = _degrees[direction]
 	_tween = get_tree().create_tween()
-	_tween.tween_property(self, "translation", direction, 0.25).as_relative()
+	_tween.tween_property(self, "translation", direction + y_translation, 0.25).as_relative()
 
 func _get_group_member_at(group, translation):
 	for ram in get_tree().get_nodes_in_group(group):

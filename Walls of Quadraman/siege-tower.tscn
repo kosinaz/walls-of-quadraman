@@ -4,7 +4,7 @@
 [ext_resource path="res://unit.gd" type="Script" id=2]
 
 [node name="siege-tower" groups=["siege_towers"] instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 0.6, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0 )
 script = ExtResource( 2 )
 
 [node name="siege-tower" parent="." index="0"]
