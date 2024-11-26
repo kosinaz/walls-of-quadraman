@@ -48,6 +48,30 @@ transform = Transform( 1, 0, 0, 0, 0.85, 0, 0, 0, 1, 2, 0, 1 )
 [node name="tower-square11" parent="." groups=["walls"] instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 0.85, 0, 0, 0, 1, 8, 0, -4 )
 
+[node name="tower-square20" parent="." groups=["walls"] instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 0.85, 0, 0, 0, 1, 8, 0, -5 )
+visible = false
+
+[node name="tower-square21" parent="." groups=["walls"] instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 0.85, 0, 0, 0, 1, 7, 0, -5 )
+visible = false
+
+[node name="tower-square22" parent="." groups=["walls"] instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 0.85, 0, 0, 0, 1, 6, 0, -5 )
+visible = false
+
+[node name="tower-square23" parent="." groups=["walls"] instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 0.85, 0, 0, 0, 1, 5, 0, -5 )
+visible = false
+
+[node name="tower-square24" parent="." groups=["walls"] instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 0.85, 0, 0, 0, 1, 4, 0, -5 )
+visible = false
+
+[node name="tower-square25" parent="." groups=["walls"] instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 0.85, 0, 0, 0, 1, 3, 0, -5 )
+visible = false
+
 [node name="tower-square16" parent="." groups=["walls"] instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 0.85, 0, 0, 0, 1, 2, 0, -4 )
 
@@ -302,3 +326,5 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 0.85, 0, 1, 0, -4.37114e-08, 9, 0
 
 [node name="wall28" parent="." groups=["walls"] instance=ExtResource( 1 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 0.85, 0, 1, 0, -4.37114e-08, 3, 0, 1 )
+
+[connection signal="moved" from="Player" to="." method="_on_player_moved"]

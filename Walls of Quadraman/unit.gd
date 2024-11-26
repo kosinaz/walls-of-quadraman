@@ -1,5 +1,7 @@
 extends Spatial
 
+signal moved
+
 var _tween = null
 
 var _degrees = {
@@ -59,7 +61,7 @@ func move_towards(direction):
 	if _is_group_member_at("doors", translation + direction):
 		if not _is_group_member_at("rams", translation):
 			return false
-		_get_group_member_at("doors", translation + direction).queue_free()
+		_get_group_member_at("doors", translation + direction).hide()
 	if _is_group_member_at("rams", translation + direction):
 		var ram = _get_group_member_at("rams", translation + direction)
 		var moved = ram.move_towards(direction)
@@ -90,11 +92,16 @@ func move_towards(direction):
 	rotation_degrees.y = _degrees[direction]
 	_tween = get_tree().create_tween()
 	_tween.tween_property(self, "translation", direction + y_translation, 0.25).as_relative()
+	_tween.tween_callback(self, "_moved")
+	return true
+
+func _moved():
+	emit_signal("moved")
 
 func _get_group_member_at(group, translation):
-	for ram in get_tree().get_nodes_in_group(group):
-		if ram.translation == translation:
-			return ram
+	for member in get_tree().get_nodes_in_group(group):
+		if member.translation == translation:
+			return member if member.visible or group != "doors" else null
 	return null
 
 func _is_group_member_at(group, translation):

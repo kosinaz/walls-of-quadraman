@@ -352,3 +352,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, -2 )
 
 [node name="tower-square-top-roof2" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1, -2 )
+
+[connection signal="moved" from="Player" to="." method="_on_player_moved"]
