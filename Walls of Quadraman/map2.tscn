@@ -287,6 +287,11 @@ transform = Transform( 0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 7, 0, 4 )
 [node name="Camera" type="Camera" parent="Position3D"]
 transform = Transform( 1, 4.22219e-08, 3.23981e-08, -4.2222e-08, 0.258819, 0.965926, 3.2398e-08, -0.965926, 0.258819, 5, 8, 3 )
 
+[node name="Camera2" type="Camera" parent="Position3D"]
+transform = Transform( 1, 4.22219e-08, 3.23981e-08, -4.2222e-08, 0.258819, 0.965926, 3.2398e-08, -0.965926, 0.258819, 5, 12, 4 )
+current = true
+fov = 50.0
+
 [node name="Ram" parent="." groups=["rams"] instance=ExtResource( 5 )]
 transform = Transform( -2.62268e-08, 0, 1, 0, 1, 0, -0.6, 0, -4.37114e-08, 0, 0, 3 )
 
